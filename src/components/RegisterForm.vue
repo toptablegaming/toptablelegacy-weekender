@@ -89,7 +89,7 @@ export default {
   methods: {
     onSubmit() {
       axios
-        .get("http://www.mocky.io/v2/5d81420c30000069006995c6")
+        .get("//www.mocky.io/v2/5d81420c30000069006995c6")
         .then(response => {
           console.log(response.data.name);
           this.$router.push({
