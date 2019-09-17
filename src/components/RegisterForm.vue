@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import router from "../router.js";
 import { ValidationObserver, ValidationProvider } from "vee-validate";
 import axios from "axios";
 
