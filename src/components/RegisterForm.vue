@@ -27,7 +27,7 @@
             <b-form-invalid-feedback id="input-2-live-feedback">{{ errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </ValidationProvider>
-        <b-form-group id="input-group-3" label="Saturday Game System" label-for="input-3">
+        <b-form-group id="input-group-3" label="Saturday game system" label-for="input-3">
           <b-form-select
             id="input-3"
             v-model="registrationData.dayOne"
@@ -35,7 +35,7 @@
             required
           ></b-form-select>
         </b-form-group>
-        <b-form-group id="input-group-4" label="Sunday Game System" label-for="input-4">
+        <b-form-group id="input-group-4" label="Sunday game system" label-for="input-4">
           <b-form-select
             id="input-4"
             v-model="registrationData.dayTwo"
