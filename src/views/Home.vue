@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <RegisterForm />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import RegisterForm from '@/components/RegisterForm.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    RegisterForm
+  },
+  metaInfo: {
+    title: 'Top Table Legacy Weekender 2 - Registration',
+    htmlAttrs: {
+      lang: 'en',
+      amp: true
+    }
   }
 }
 </script>
