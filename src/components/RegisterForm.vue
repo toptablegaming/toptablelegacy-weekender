@@ -2,7 +2,7 @@
   <div class="register-form">
     <ValidationObserver ref="observer" v-slot="{ passes }">
       <b-form @submit.prevent="passes(onSubmit)">
-        <ValidationProvider name="Name" rules="required" v-slot="{ valid, errors }">
+        <ValidationProvider name="Name" rules="required" mode="lazy" v-slot="{ valid, errors }">
           <b-form-group id="input-group-1" label="Full name" label-for="input-1">
             <b-form-input
               id="input-1"
@@ -14,7 +14,7 @@
             <b-form-invalid-feedback id="input-1-live-feedback">{{ errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </ValidationProvider>
-        <ValidationProvider name="Email" rules="required|email" v-slot="{ valid, errors }">
+        <ValidationProvider name="Email" rules="required|email" mode="lazy" v-slot="{ valid, errors }">
           <b-form-group id="input-group-2" label="Email address" label-for="input-2">
             <b-form-input
               id="input-2"

@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import VueMeta from 'vue-meta'
 import BootstrapVue from 'bootstrap-vue'
-import { required, confirmed, length, email } from 'vee-validate/dist/rules';
+import { required, email } from 'vee-validate/dist/rules';
 import { extend } from 'vee-validate';
 
 extend('required', {
@@ -14,16 +14,6 @@ extend('required', {
 extend('email', {
   ...email,
   message: 'This field must be a valid email'
-});
-
-extend('confirmed', {
-  ...confirmed,
-  message: 'This field confirmation does not match'
-});
-
-extend('length', {
-  ...length,
-  message: 'This field must have 2 options'
 });
 
 import 'bootstrap/dist/css/bootstrap.css'

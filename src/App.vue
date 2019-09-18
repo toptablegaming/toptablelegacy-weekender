@@ -9,6 +9,7 @@
         <p class="main__subtitle">
           11th-13th October 2019
         </p>
+        <p class="main__body">To register, you must have alreay purchased a ticket for the event. If you haven't, you can find out how to on <a href="https://www.facebook.com/events/2653973597965989/">our Facebook event page</a></p>
       </div>
       <router-view/>
     </div>
@@ -45,6 +46,14 @@ body {
   min-height: 100%;
   padding: 0;
 }
+a {
+  color: #E53E3E;
+}
+a:hover,
+a:focus,
+a:visited {
+  color: #E53E3E!important;
+}
 .main {
   max-width: 100%;
   padding: 30px;
@@ -76,9 +85,15 @@ body {
   margin: 0;
   padding: 5px 0 0;
 }
+.main__body {
+  font-size: 16px;
+  color: #777;
+  margin: 0;
+  padding: 10px 0 0;
+}
 .logo {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 20px;
 }
 .logo img{
