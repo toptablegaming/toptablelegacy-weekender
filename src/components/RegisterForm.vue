@@ -1,8 +1,12 @@
 <template>
   <div class="register-form">
-    <ValidationObserver ref="observer" v-slot="{ passes }">
-      <b-form @submit.prevent="passes(onSubmit)">
-        <ValidationProvider name="Name" rules="required" mode="lazy" v-slot="{ valid, errors }">
+    <ValidationObserver tag="div" ref="observer" v-slot="{ passes }">
+      <b-form 
+        @submit.prevent="passes(onSubmit)" 
+        data-netlify="true"
+        name="weekender-2-registration"
+      >
+        <ValidationProvider tag="div" name="Name" rules="required" mode="lazy" v-slot="{ valid, errors }">
           <b-form-group id="input-group-1" label="Full name" label-for="input-1">
             <b-form-input
               id="input-1"
@@ -14,7 +18,7 @@
             <b-form-invalid-feedback id="input-1-live-feedback">{{ errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </ValidationProvider>
-        <ValidationProvider name="Email" rules="required|email" mode="lazy" v-slot="{ valid, errors }">
+        <ValidationProvider tag="div" name="Email" rules="required|email" mode="lazy" v-slot="{ valid, errors }">
           <b-form-group id="input-group-2" label="Email address" label-for="input-2">
             <b-form-input
               id="input-2"
@@ -86,25 +90,48 @@ export default {
     };
   },
   methods: {
+    encode (data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
     onSubmit() {
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      };
       axios
-        .get("//www.mocky.io/v2/5d81420c30000069006995c6")
-        .then(response => {
-          console.log(response.data.name);
-          this.$router.push({
-            name: "thanks",
-            params: {
-              name: response.data.name
-            },
-            query: { 
-              name: response.data.name 
-            }
-          });
-        })
+        .post(
+          `/thanks?name=${this.registrationData.name}`,
+          this.encode({
+            "form-name": "weekender-2-registration",
+            ...this.registrationData
+          }),
+          axiosConfig
+        )
         .catch(error => {
           console.log(error);
           this.errored = true;
         });
+      // axios
+      //   .get("//www.mocky.io/v2/5d81420c30000069006995c6")
+      //   .then(response => {
+      //     console.log(response.data.name);
+      //     this.$router.push({
+      //       name: "thanks",
+      //       params: {
+      //         name: response.data.name
+      //       },
+      //       query: { 
+      //         name: response.data.name 
+      //       }
+      //     });
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //     this.errored = true;
+      //   });
     }
   }
 };
