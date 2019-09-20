@@ -3,6 +3,7 @@
     <ValidationObserver tag="div" ref="observer" v-slot="{ passes }">
       <b-form 
         @submit.prevent="passes(onSubmit)" 
+        method="POST" 
         data-netlify="true"
         name="weekender-2-registration"
       >

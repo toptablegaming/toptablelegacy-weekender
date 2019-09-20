@@ -27,9 +27,6 @@ export default {
     theName () {
       return this.name ? this.name : this.$route.query.name;
     }
-  },
-  mounted () {
-    console.log(this.name);
   }
 }
 </script>
