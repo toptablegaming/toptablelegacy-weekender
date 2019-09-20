@@ -99,21 +99,34 @@ export default {
         .join("&");
     },
     onSubmit() {
+      const vm = this;
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
       };
       axios
         .post(
-          `/thanks?name=${this.registrationData.name}`,
-          this.encode({
+          `/thanks?name=${vm.registrationData.name}`,
+          vm.encode({
             "form-name": "weekender-2-registration",
-            ...this.registrationData
+            ...vm.registrationData
           }),
           axiosConfig
         )
+        .then(() => {
+          console.log(vm.registrationData.name);
+          this.$router.push({
+            name: "thanks",
+            params: {
+              name: vm.registrationData.name
+            },
+            query: { 
+              name: vm.registrationData.name 
+            }
+          });
+        })
         .catch(error => {
           console.log(error);
-          this.errored = true;
+          vm.errored = true;
         });
       // axios
       //   .get("//www.mocky.io/v2/5d81420c30000069006995c6")
