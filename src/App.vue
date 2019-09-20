@@ -9,7 +9,9 @@
         <p class="main__subtitle">
           11th-13th October 2019
         </p>
-        <p class="main__body">To register, you must have alreay purchased a ticket for the event. If you haven't, you can find out how to on <a href="https://www.facebook.com/events/2653973597965989/">our Facebook event page</a></p>
+        <p class="main__body" v-if="!this.$route.query.name">
+          To register, you must have already purchased a ticket for the event. If you haven't, you can find out how to on <a href="https://www.facebook.com/events/2653973597965989/">our Facebook event page</a>
+        </p>
       </div>
       <router-view/>
     </div>
